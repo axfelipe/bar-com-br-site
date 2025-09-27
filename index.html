@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BAR.com.br — Domínio premium à venda para o universo de bares e bebidas</title>
+  <meta name="description" content="Domínio premium BAR.com.br à venda. Ideal para marketplace de bebidas, app de reservas, mídia, franquias e soluções B2B para bares, pubs e restaurantes." />
+  <meta name="keywords" content="domínio, bar.com.br, domínio premium, bares, bebidas, pubs, restaurantes, marketplace, reservas" />
+  <link rel="canonical" href="https://bar.com.br/" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bar.com.br/" />
+  <meta property="og:title" content="BAR.com.br — Domínio premium à venda" />
+  <meta property="og:description" content="A chave definitiva para marcas de bebidas, apps de reservas e projetos B2B no setor de bares e entretenimento." />
+  <meta property="og:image" content="/images/og-cover.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BAR.com.br — Domínio premium à venda" />
+  <meta name="twitter:description" content="A chave definitiva para marcas de bebidas, apps de reservas e projetos B2B no setor de bares e entretenimento." />
+  <meta name="twitter:image" content="/images/og-cover.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0B0D10; /* fundo dark elegante */
+      --surface:#11141A; /* cards */
+      --surface-2:#171B22;
+      --text:#EAEFF7;
+      --muted:#A7B0C0;
+      --primary:#ED254E; /* destaque */
+      --primary-600:#d21e43;
+      --accent:#F3A712; /* detalhe dourado */
+      --ok:#00C47A; --warn:#FFC857; --err:#ff4d4f;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --max:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:radial-gradient(1200px 1200px at 90% -10%, rgba(237,37,78,.12),transparent 60%),
+               radial-gradient(1200px 1200px at -10% 120%, rgba(243,167,18,.10),transparent 60%), var(--bg);
+      color:var(--text); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"; line-height:1.6;
+    }
+    a{color:var(--text); text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{width:100%; max-width:var(--max); margin-inline:auto; padding:0 20px}
+    .btn{display:inline-flex; align-items:center; gap:.6rem; padding:.9rem 1.2rem; border-radius:999px; border:1px solid rgba(255,255,255,.12); background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)); backdrop-filter: blur(6px); font-weight:600}
+    .btn.primary{background:linear-gradient(180deg, var(--primary), var(--primary-600)); border:none; box-shadow:0 12px 24px rgba(237,37,78,.35)}
+    .btn:hover{transform:translateY(-2px); transition:.2s ease}
+    .chip{display:inline-flex; align-items:center; gap:.5rem; padding:.5rem .8rem; border:1px solid rgba(255,255,255,.15); border-radius:999px; font-size:.85rem; color:var(--muted)}
+
+    /* Header */
+    header{position:sticky; top:0; z-index:50; background:rgba(11,13,16,.6); backdrop-filter: blur(10px); border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .logo{display:flex; align-items:center; gap:.7rem}
+    .logo-mark{width:36px; height:36px; border-radius:10px; background: conic-gradient(from 120deg,var(--primary),#ff6b8a,var(--accent)); box-shadow:0 6px 14px rgba(237,37,78,.35)}
+    .logo h1{font-family:"Playfair Display",serif; font-size:1.2rem; letter-spacing:.4px; margin:0}
+    .nav-actions{display:flex; align-items:center; gap:.6rem}
+    .mobile-toggle{display:none}
+
+    /* Hero */
+    .hero{position:relative; padding:80px 0 40px; overflow:hidden}
+    .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:46px; align-items:center}
+    .eyebrow{opacity:.8; letter-spacing:.12em; text-transform:uppercase; font-size:.8rem}
+    .title{font-family:"Playfair Display",serif; font-size:clamp(2.2rem,4vw,3.8rem); line-height:1.1; margin:.6rem 0 1rem}
+    .lead{color:var(--muted); font-size:1.05rem; max-width:56ch}
+    .cta-row{display:flex; gap:.8rem; flex-wrap:wrap; margin-top:1.2rem}
+
+    .hero-card{position:relative; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); isolation:isolate}
+    .hero-card::before{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.1), rgba(0,0,0,.45)); z-index:1}
+    .hero-card img{width:100%; height:480px; object-fit:cover}
+    .hero-badge{position:absolute; left:16px; top:16px; z-index:2}
+
+    /* Section */
+    section{padding:72px 0}
+    .section-head{display:flex; justify-content:space-between; align-items:end; gap:20px; margin-bottom:28px}
+    .section-title{font-family:"Playfair Display",serif; font-size:clamp(1.6rem,2.8vw,2.2rem); margin:0}
+    .muted{color:var(--muted)}
+
+    /* Gallery */
+    .gallery{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
+    .gallery a{position:relative; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.08)}
+    .gallery img{width:100%; height:210px; object-fit:cover; transition: transform .35s ease}
+    .gallery a:hover img{transform:scale(1.05)}
+
+    /* Benefits */
+    .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    .card{background:linear-gradient(180deg,var(--surface),var(--surface-2)); border:1px solid rgba(255,255,255,.08); padding:20px; border-radius:16px; box-shadow:var(--shadow); min-height:200px}
+    .card h3{margin:0 0 .4rem; font-size:1.05rem}
+
+    /* Applications */
+    .apps{display:grid; grid-template-columns:repeat(4,1fr); gap:14px}
+    .app{background:linear-gradient(180deg,var(--surface),var(--surface-2)); border:1px solid rgba(255,255,255,.08); padding:18px; border-radius:14px}
+    .app h4{margin:.4rem 0 .2rem; font-size:1rem}
+
+    /* Form */
+    .form-wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:start}
+    form{background:linear-gradient(180deg,var(--surface),var(--surface-2)); border:1px solid rgba(255,255,255,.1); border-radius:16px; padding:20px}
+    label{display:block; font-size:.92rem; color:var(--muted); margin:.2rem 0 .3rem}
+    input, select, textarea{width:100%; background:#0e1217; color:var(--text); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:.9rem 1rem; outline:none}
+    textarea{min-height:120px; resize:vertical}
+    .row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    .policy{font-size:.86rem; color:var(--muted)}
+    .alert{padding:.85rem 1rem; border-radius:12px; border:1px solid rgba(255,255,255,.12)}
+    .alert.ok{background:rgba(0,196,122,.12); border-color:rgba(0,196,122,.4)}
+    .alert.err{background:rgba(255,77,79,.12); border-color:rgba(255,77,79,.35)}
+
+    /* FAQ */
+    details{background:linear-gradient(180deg,var(--surface),var(--surface-2)); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:16px 18px}
+    details+details{margin-top:10px}
+    summary{cursor:pointer; font-weight:600}
+
+    /* Footer */
+    footer{border-top:1px solid rgba(255,255,255,.08); padding:40px 0; color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+      .form-wrap{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .cards{grid-template-columns:1fr}
+      .apps{grid-template-columns:repeat(2,1fr)}
+      .row{grid-template-columns:1fr}
+      .nav-actions .hide-sm{display:none}
+      .mobile-toggle{display:inline-flex}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#top" aria-label="BAR.com.br">
+        <div class="logo-mark" aria-hidden="true"></div>
+        <h1>BAR<span style="opacity:.6">.com.br</span></h1>
+      </a>
+      <nav class="nav-actions" aria-label="primária">
+        <a href="#galeria" class="btn hide-sm">Galeria</a>
+        <a href="#aplicacoes" class="btn hide-sm">Aplicações</a>
+        <a href="#proposta" class="btn primary">Enviar proposta</a>
+        <button id="menu" class="btn mobile-toggle" aria-expanded="false" aria-controls="menu-panel">Menu</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="chip eyebrow">Domínio premium</span>
+          <h2 class="title">BAR.com.br — a marca definitiva para o universo de bares e bebidas</h2>
+          <p class="lead">Singelo, memorável e com autoridade imediata. Ideal para <strong>marketplace de bebidas</strong>, <strong>app de reservas</strong>, <strong>rede de franquias</strong>, mídia/conteúdo, ou soluções <strong>B2B</strong> para bares e restaurantes.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#proposta">Quero fazer uma proposta</a>
+            <a class="btn" href="#aplicacoes">Ver aplicações</a>
+          </div>
+          <p class="muted" style="margin-top:.9rem">Transferência via registro.br com segurança. NDA e escrow sob demanda.</p>
+        </div>
+        <div class="hero-card">
+          <span class="hero-badge chip">Edição limitada de imagens</span>
+          <!-- Imagem destaque (troque por sua arte/hero) -->
+          <img alt="Ambiente sofisticado de bar com iluminação aconchegante" loading="eager"
+               src="https://source.unsplash.com/1600x900/?bar,cocktail" />
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFÍCIOS RÁPIDOS -->
+    <section>
+      <div class="container cards">
+        <div class="card">
+          <h3>Memorável e direto</h3>
+          <p class="muted">3 letras + .com.br: altíssima lembrança e digitação intuitiva. Fortalece marca e SEO de cauda curta.</p>
+        </div>
+        <div class="card">
+          <h3>Autoridade no nicho</h3>
+          <p class="muted">Sinaliza liderança para marcas, distribuidores, apps e mídia no ecossistema de bares.</p>
+        </div>
+        <div class="card">
+          <h3>Liquidez estratégica</h3>
+          <p class="muted">Ativo raro no Brasil. Potencial de valorização e múltiplas estratégias de monetização.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section id="galeria">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Galeria de moodboard</h2>
+          <p class="muted">Inspirações visuais para a identidade do projeto.</p>
+        </div>
+        <div class="gallery" aria-label="galeria de imagens">
+          <!-- Use suas fotos próprias ou troque as URLs abaixo (royalty-free Unsplash). -->
+          <a href="https://source.unsplash.com/1600x900/?bar,neon" target="_blank" rel="noopener">
+            <img loading="lazy" alt="Bar com letreiro neon" src="https://source.unsplash.com/800x600/?bar,neon&sig=1" />
+          </a>
+          <a href="https://source.unsplash.com/1600x900/?cocktail" target="_blank" rel="noopener">
+            <img loading="lazy" alt="Coquetel colorido" src="https://source.unsplash.com/800x600/?cocktail&sig=2" />
+          </a>
+          <a href="https://source.unsplash.com/1600x900/?pub" target="_blank" rel="noopener">
+            <img loading="lazy" alt="Pub aconchegante" src="https://source.unsplash.com/800x600/?pub&sig=3" />
+          </a>
+          <a href="https://source.unsplash.com/1600x900/?beer" target="_blank" rel="noopener">
+            <img loading="lazy" alt="Cervejas artesanais" src="https://source.unsplash.com/800x600/?beer&sig=4" />
+          </a>
+          <a href="https://source.unsplash.com/1600x900/?wine,bar" target="_blank" rel="noopener">
+            <img loading="lazy" alt="Vinhos em bar" src="https://source.unsplash.com/800x600/?wine,bar&sig=5" />
+          </a>
+          <a href="https://source.unsplash.com/1600x900/?bartender" target="_blank" rel="noopener">
+            <img loading="lazy" alt="Bartender preparando drink" src="https://source.unsplash.com/800x600/?bartender&sig=6" />
+          </a>
+          <a href="https://source.unsplash.com/1600x900/?whisky" target="_blank" rel="noopener">
+            <img loading="lazy" alt="Whisky e gelo" src="https://source.unsplash.com/800x600/?whisky&sig=7" />
+          </a>
+          <a href="https://source.unsplash.com/1600x900/?gin,tonic" target="_blank" rel="noopener">
+            <img loading="lazy" alt="Gin tônica" src="https://source.unsplash.com/800x600/?gin,tonic&sig=8" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- APLICAÇÕES -->
+    <section id="aplicacoes">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Aplicações do domínio</h2>
+          <p class="muted">Alguns caminhos estratégicos para BAR.com.br</p>
+        </div>
+        <div class="apps">
+          <div class="app">
+            <div class="chip">Marketplace</div>
+            <h4>Marketplace de bebidas</h4>
+            <p class="muted">Distribuição B2C/B2B, catálogo de marcas, logística integrada e afiliados.</p>
+          </div>
+          <div class="app">
+            <div class="chip">Reservas</div>
+            <h4>App/site de reservas</h4>
+            <p class="muted">Descoberta de bares, filas inteligentes, eventos e fidelidade.</p>
+          </div>
+          <div class="app">
+            <div class="chip">Mídia</div>
+            <h4>Portal de conteúdo</h4>
+            <p class="muted">Tendências, reviews, guias de coquetelaria e calendário de eventos.</p>
+          </div>
+          <div class="app">
+            <div class="chip">B2B</div>
+            <h4>Plataforma para donos de bares</h4>
+            <p class="muted">Fornecedores, compras recorrentes, cursos, software e comunidade.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULÁRIO -->
+    <section id="proposta" aria-labelledby="proposta-title">
+      <div class="container form-wrap">
+        <div>
+          <h2 id="proposta-title" class="section-title">Envie sua proposta</h2>
+          <p class="muted">Preencha o formulário abaixo para receber retorno com instruções de due diligence e transferência no registro.br.</p>
+          <form id="offerForm" action="https://formsubmit.co/axfelipe@hotmail.com" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="Nova proposta para BAR.com.br" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_autoresponse" value="Olá! Recebemos sua proposta para o domínio BAR.com.br. Em breve retornaremos com os próximos passos." />
+            <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-5000px;opacity:0" aria-hidden="true">
+
+            <div class="row">
+              <div>
+                <label for="name">Nome completo*</label>
+                <input id="name" name="name" required placeholder="Seu nome" />
+              </div>
+              <div>
+                <label for="company">Empresa</label>
+                <input id="company" name="company" placeholder="Opcional" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div>
+                <label for="email">E‑mail corporativo*</label>
+                <input id="email" name="email" type="email" required placeholder="nome@empresa.com" />
+              </div>
+              <div>
+                <label for="phone">WhatsApp</label>
+                <input id="phone" name="phone" inputmode="tel" placeholder="(xx) xxxxx‑xxxx" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div>
+                <label for="currency">Moeda</label>
+                <select id="currency" name="currency">
+                  <option value="BRL">BRL (R$)</option>
+                  <option value="USD">USD ($)</option>
+                </select>
+              </div>
+              <div>
+                <label for="amount">Oferta (número)</label>
+                <input id="amount" name="amount" type="number" min="0" step="100" placeholder="Ex.: 250000" />
+              </div>
+            </div>
+
+            <label for="message">Mensagem</label>
+            <textarea id="message" name="message" placeholder="Conte um pouco sobre o projeto, prazos e condições (escrow/NDA, etc.)"></textarea>
+
+            <label style="display:flex; gap:.6rem; align-items:center; margin:.8rem 0 1.2rem">
+              <input type="checkbox" name="consent" required />
+              <span class="policy">Concordo em ser contatado(a) sobre esta negociação e aceito a política de privacidade.</span>
+            </label>
+
+            <button type="submit" class="btn primary">Enviar proposta</button>
+            <div id="formMsg" class="alert" aria-live="polite" style="display:none; margin-top:12px"></div>
+          </form>
+        </div>
+
+        <aside class="card">
+          <h3>Como funciona a transferência</h3>
+          <ol class="muted" style="padding-left:18px">
+            <li>Assinatura de NDA/LOI (opcional), conferência de titularidade.</li>
+            <li>Definição de escrow (ex.: <em>mediador</em>) e condições.</li>
+            <li>Pagamento conforme acordo.</li>
+            <li>Transferência técnica no <strong>registro.br</strong> e apontamento DNS.</li>
+          </ol>
+          <p class="muted">Preferência por propostas corporativas e estratégicas. Sem pressa para vender; aberto a ofertas sérias.</p>
+          <div style="display:flex; gap:.6rem; flex-wrap:wrap; margin-top:10px">
+            <a class="btn" href="https://wa.me/SEU_NUMERO" target="_blank" rel="noopener">Falar no WhatsApp</a>
+            <a class="btn" href="mailto:axfelipe@hotmail.com">contato@bar.com.br</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Perguntas frequentes</h2>
+        </div>
+        <details>
+          <summary>Existe valor mínimo?</summary>
+          <p class="muted">O ativo é raro; trabalhamos com <strong>melhor oferta</strong> qualificada. Envie sua proposta e contexto do projeto.</p>
+        </details>
+        <details>
+          <summary>Como é feita a transferência?</summary>
+          <p class="muted">Após acordo, realizamos a troca de titularidade no registro.br e o apontamento de DNS. Podemos usar escrow/NDA.</p>
+        </details>
+        <details>
+          <summary>O domínio possui marcas associadas?</summary>
+          <p class="muted">Venda apenas do <strong>nome de domínio BAR.com.br</strong>. Marcas e logotipos exibidos são apenas identidade visual do site.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap">
+      <small>© <span id="y"></span> BAR.com.br — domínio premium. Todos os direitos reservados.</small>
+      <small><a href="#" id="open-privacy">Política de privacidade</a></small>
+    </div>
+  </footer>
+
+  <!-- JSON-LD (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "BAR.com.br",
+    "category": "Domain Name",
+    "description": "Domínio premium BAR.com.br à venda para projetos de bebidas, bares e entretenimento.",
+    "brand": { "@type": "Brand", "name": "BAR.com.br" },
+    "sku": "bar.com.br",
+    "offers": {
+      "@type": "Offer",
+      "url": "https://bar.com.br/#proposta",
+      "availability": "https://schema.org/InStock",
+      "priceCurrency": "BRL"
+    }
+  }
+  </script>
+
+  <!-- Scripts -->
+  <script>
+    // Ano dinâmico
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Menu simples (exibição futura se você quiser um menu móvel pleno)
+    const menuBtn = document.getElementById('menu');
+    if(menuBtn){
+      menuBtn.addEventListener('click',()=>{
+        const open = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', String(!open));
+        alert('Menu móvel pode ser implementado aqui se necessário.');
+      });
+    }
+
+    // Formulário Formspree (AJAX) — substitua a action com seu endpoint real
+    const form = document.getElementById('offerForm');
+    const msg = document.getElementById('formMsg');
+    if(form){
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        msg.style.display='block';
+        msg.className='alert';
+        msg.textContent='Enviando…';
+        try{
+          const formData = new FormData(form);
+          // Se o honeypot (website) vier preenchido, aborta
+          if(formData.get('website')){ msg.textContent='Erro de validação.'; return; }
+          const res = await fetch(form.action, { method:'POST', body:formData, headers: { 'Accept':'application/json' } });
+          if(res.ok){
+            msg.className='alert ok';
+            msg.textContent='Proposta enviada! Responderemos em breve.';
+            form.reset();
+          }else{
+            const data = await res.json().catch(()=>({}));
+            throw new Error(data?.errors?.[0]?.message || 'Falha ao enviar. Tente novamente.');
+          }
+        }catch(err){
+          msg.className='alert err';
+          msg.textContent= err.message || 'Falha ao enviar.';
+        }
+      });
+    }
+
+    // Política de privacidade mínima (placeholder)
+    document.getElementById('open-privacy')?.addEventListener('click', (e)=>{
+      e.preventDefault();
+      alert('Este site coleta apenas dados do formulário de proposta. Seus dados são usados exclusivamente para contato sobre a negociação do domínio.');
+    });
+  </script>
+</body>
+</html>

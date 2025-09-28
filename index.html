@@ -9,18 +9,16 @@
   <link rel="canonical" href="https://bar.com.br/" />
   <meta name="robots" content="index,follow" />
 
-  <!-- Open Graph / Facebook -->
+  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://bar.com.br/" />
   <meta property="og:title" content="BAR.com.br — Domínio premium à venda" />
   <meta property="og:description" content="A chave definitiva para marcas de bebidas, apps de reservas e projetos B2B no setor de bares e entretenimento." />
-  <meta property="og:image" content="/images/og-cover.jpg" />
-
-  <!-- Twitter -->
+  <meta property="og:image" content="/images/hero-neon-bar.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="BAR.com.br — Domínio premium à venda" />
   <meta name="twitter:description" content="A chave definitiva para marcas de bebidas, apps de reservas e projetos B2B no setor de bares e entretenimento." />
-  <meta name="twitter:image" content="/images/og-cover.jpg" />
+  <meta name="twitter:image" content="/images/hero-neon-bar.jpg" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,14 +27,14 @@
 
   <style>
     :root{
-      --bg:#0B0D10; /* fundo dark elegante */
-      --surface:#11141A; /* cards */
+      --bg:#0B0D10;
+      --surface:#11141A;
       --surface-2:#171B22;
       --text:#EAEFF7;
       --muted:#A7B0C0;
-      --primary:#ED254E; /* destaque */
-      --primary-600:#d21e43;
-      --accent:#F3A712; /* detalhe dourado */
+      --primary:#2ECC71;         /* Esmeralda */
+      --primary-600:#27AE60;
+      --accent:#F3A712;          /* Dourado */
       --ok:#00C47A; --warn:#FFC857; --err:#ff4d4f;
       --radius:18px;
       --shadow:0 10px 30px rgba(0,0,0,.35);
@@ -45,15 +43,20 @@
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; background:radial-gradient(1200px 1200px at 90% -10%, rgba(237,37,78,.12),transparent 60%),
-               radial-gradient(1200px 1200px at -10% 120%, rgba(243,167,18,.10),transparent 60%), var(--bg);
-      color:var(--text); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"; line-height:1.6;
+      margin:0;
+      background:
+        radial-gradient(1200px 1200px at 90% -10%, rgba(46,204,113,.12), transparent 60%),
+        radial-gradient(1200px 1200px at -10% 120%, rgba(243,167,18,.10), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      line-height:1.6;
     }
     a{color:var(--text); text-decoration:none}
     img{max-width:100%; display:block}
     .container{width:100%; max-width:var(--max); margin-inline:auto; padding:0 20px}
     .btn{display:inline-flex; align-items:center; gap:.6rem; padding:.9rem 1.2rem; border-radius:999px; border:1px solid rgba(255,255,255,.12); background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)); backdrop-filter: blur(6px); font-weight:600}
-    .btn.primary{background:linear-gradient(180deg, var(--primary), var(--primary-600)); border:none; box-shadow:0 12px 24px rgba(237,37,78,.35)}
+    .btn.primary{background:linear-gradient(180deg, var(--primary), var(--primary-600)); border:none; box-shadow:0 12px 24px rgba(46,204,113,.35)}
     .btn:hover{transform:translateY(-2px); transition:.2s ease}
     .chip{display:inline-flex; align-items:center; gap:.5rem; padding:.5rem .8rem; border:1px solid rgba(255,255,255,.15); border-radius:999px; font-size:.85rem; color:var(--muted)}
 
@@ -61,7 +64,11 @@
     header{position:sticky; top:0; z-index:50; background:rgba(11,13,16,.6); backdrop-filter: blur(10px); border-bottom:1px solid rgba(255,255,255,.08)}
     .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
     .logo{display:flex; align-items:center; gap:.7rem}
-    .logo-mark{width:36px; height:36px; border-radius:10px; background: conic-gradient(from 120deg,var(--primary),#ff6b8a,var(--accent)); box-shadow:0 6px 14px rgba(237,37,78,.35)}
+    .logo-mark{
+      width:36px; height:36px; border-radius:10px;
+      background: conic-gradient(from 120deg, var(--primary), #7ff0b4, var(--accent));
+      box-shadow:0 6px 14px rgba(46,204,113,.35)
+    }
     .logo h1{font-family:"Playfair Display",serif; font-size:1.2rem; letter-spacing:.4px; margin:0}
     .nav-actions{display:flex; align-items:center; gap:.6rem}
     .mobile-toggle{display:none}
@@ -71,6 +78,7 @@
     .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:46px; align-items:center}
     .eyebrow{opacity:.8; letter-spacing:.12em; text-transform:uppercase; font-size:.8rem}
     .title{font-family:"Playfair Display",serif; font-size:clamp(2.2rem,4vw,3.8rem); line-height:1.1; margin:.6rem 0 1rem}
+    .gold-title{display:inline-block; background:linear-gradient(180deg,#F9E6A0 0%,#E8C76A 40%,#C9962E 60%,#8A5E19 85%); -webkit-background-clip:text; background-clip:text; color:transparent; text-shadow:0 1px 0 #FFF7C8, 0 2px 0 #EAD07A, 0 3px 6px rgba(0,0,0,.35); filter:drop-shadow(0 6px 18px rgba(243,167,18,.25)); letter-spacing:.4px}
     .lead{color:var(--muted); font-size:1.05rem; max-width:56ch}
     .cta-row{display:flex; gap:.8rem; flex-wrap:wrap; margin-top:1.2rem}
 
@@ -156,7 +164,10 @@
       <div class="container hero-grid">
         <div>
           <span class="chip eyebrow">Domínio premium</span>
-          <h2 class="title">BAR.com.br — a marca definitiva para o universo de bares e bebidas</h2>
+          <h2 class="title">
+            <span class="gold-title">BAR.com.br</span><br>
+            <span style="color:#ffffff; margin-top:8px; display:inline-block">A marca definitiva para o universo de bares e bebidas</span>
+          </h2>
           <p class="lead">Singelo, memorável e com autoridade imediata. Ideal para <strong>marketplace de bebidas</strong>, <strong>app de reservas</strong>, <strong>rede de franquias</strong>, mídia/conteúdo, ou soluções <strong>B2B</strong> para bares e restaurantes.</p>
           <div class="cta-row">
             <a class="btn primary" href="#proposta">Quero fazer uma proposta</a>
@@ -166,9 +177,9 @@
         </div>
         <div class="hero-card">
           <span class="hero-badge chip">Edição limitada de imagens</span>
-          <!-- Imagem destaque (troque por sua arte/hero) -->
-          <img alt="Ambiente sofisticado de bar com iluminação aconchegante" loading="eager"
-               src="https://source.unsplash.com/1600x900/?bar,cocktail" />
+          <img alt="Letreiro BAR em neon esmeralda, luz quente e fundo escuro"
+               loading="eager"
+               src="/images/hero-neon-bar.jpg" />
         </div>
       </div>
     </section>
@@ -199,30 +210,32 @@
           <p class="muted">Inspirações visuais para a identidade do projeto.</p>
         </div>
         <div class="gallery" aria-label="galeria de imagens">
-          <!-- Use suas fotos próprias ou troque as URLs abaixo (royalty-free Unsplash). -->
-          <a href="https://source.unsplash.com/1600x900/?bar,neon" target="_blank" rel="noopener">
-            <img loading="lazy" alt="Bar com letreiro neon" src="https://source.unsplash.com/800x600/?bar,neon&sig=1" />
+          <a href="/images/pub-vintage-emerald.jpg" target="_blank" rel="noopener">
+            <img loading="lazy" alt="Pub aconchegante com acentos verdes" src="/images/pub-vintage-emerald.jpg" />
           </a>
-          <a href="https://source.unsplash.com/1600x900/?cocktail" target="_blank" rel="noopener">
-            <img loading="lazy" alt="Coquetel colorido" src="https://source.unsplash.com/800x600/?cocktail&sig=2" />
+          <a href="/images/cocktail-coupe-orange.jpg" target="_blank" rel="noopener">
+            <img loading="lazy" alt="Coquetel esmeralda em taça coupe (close)" src="/images/cocktail-coupe-orange.jpg" />
           </a>
-          <a href="https://source.unsplash.com/1600x900/?pub" target="_blank" rel="noopener">
-            <img loading="lazy" alt="Pub aconchegante" src="https://source.unsplash.com/800x600/?pub&sig=3" />
+          <a href="/images/beer-flight.jpg" target="_blank" rel="noopener">
+            <img loading="lazy" alt="Tábua de degustação de cervejas artesanais" src="/images/beer-flight.jpg" />
           </a>
-          <a href="https://source.unsplash.com/1600x900/?beer" target="_blank" rel="noopener">
-            <img loading="lazy" alt="Cervejas artesanais" src="https://source.unsplash.com/800x600/?beer&sig=4" />
+          <a href="/images/wine-wall.jpg" target="_blank" rel="noopener">
+            <img loading="lazy" alt="Parede de vinhos e taças" src="/images/wine-wall.jpg" />
           </a>
-          <a href="https://source.unsplash.com/1600x900/?wine,bar" target="_blank" rel="noopener">
-            <img loading="lazy" alt="Vinhos em bar" src="https://source.unsplash.com/800x600/?wine,bar&sig=5" />
+          <a href="/images/deal-handshake.jpg" target="_blank" rel="noopener">
+            <img loading="lazy" alt="Aperto de mãos no balcão do bar" src="/images/deal-handshake.jpg" />
           </a>
-          <a href="https://source.unsplash.com/1600x900/?bartender" target="_blank" rel="noopener">
-            <img loading="lazy" alt="Bartender preparando drink" src="https://source.unsplash.com/800x600/?bartender&sig=6" />
+          <a href="/images/whisky-on-the-rocks.jpg" target="_blank" rel="noopener">
+            <img loading="lazy" alt="Whisky no copo com gelo" src="/images/whisky-on-the-rocks.jpg" />
           </a>
-          <a href="https://source.unsplash.com/1600x900/?whisky" target="_blank" rel="noopener">
-            <img loading="lazy" alt="Whisky e gelo" src="https://source.unsplash.com/800x600/?whisky&sig=7" />
+          <a href="/images/cocktail-coupe-lime.jpg" target="_blank" rel="noopener">
+            <img loading="lazy" alt="Coquetel com espuma e fatia de limão" src="/images/cocktail-coupe-lime.jpg" />
           </a>
-          <a href="https://source.unsplash.com/1600x900/?gin,tonic" target="_blank" rel="noopener">
-            <img loading="lazy" alt="Gin tônica" src="https://source.unsplash.com/800x600/?gin,tonic&sig=8" />
+          <a href="/images/cocktail-coupe-emerald.jpg" target="_blank" rel="noopener">
+            <img loading="lazy" alt="Segundo coquetel esmeralda em taça coupe" src="/images/cocktail-coupe-emerald.jpg" />
+          </a>
+          <a href="/images/gin-tonic-botanicals.jpg" target="_blank" rel="noopener">
+            <img loading="lazy" alt="Gin tônica com botânicos sob luz esmeralda" src="/images/gin-tonic-botanicals.jpg" />
           </a>
         </div>
       </div>
@@ -285,12 +298,12 @@
 
             <div class="row">
               <div>
-                <label for="email">E‑mail corporativo*</label>
+                <label for="email">E-mail corporativo*</label>
                 <input id="email" name="email" type="email" required placeholder="nome@empresa.com" />
               </div>
               <div>
                 <label for="phone">WhatsApp</label>
-                <input id="phone" name="phone" inputmode="tel" placeholder="(xx) xxxxx‑xxxx" />
+                <input id="phone" name="phone" inputmode="tel" placeholder="(xx) xxxxx-xxxx" />
               </div>
             </div>
 
@@ -332,30 +345,9 @@
           <p class="muted">Preferência por propostas corporativas e estratégicas. Sem pressa para vender; aberto a ofertas sérias.</p>
           <div style="display:flex; gap:.6rem; flex-wrap:wrap; margin-top:10px">
             <a class="btn" href="https://wa.me/SEU_NUMERO" target="_blank" rel="noopener">Falar no WhatsApp</a>
-            <a class="btn" href="mailto:axfelipe@hotmail.com">contato@bar.com.br</a>
+            <a class="btn" href="mailto:axfelipe@hotmail.com">axfelipe@hotmail.com</a>
           </div>
         </aside>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section>
-      <div class="container">
-        <div class="section-head">
-          <h2 class="section-title">Perguntas frequentes</h2>
-        </div>
-        <details>
-          <summary>Existe valor mínimo?</summary>
-          <p class="muted">O ativo é raro; trabalhamos com <strong>melhor oferta</strong> qualificada. Envie sua proposta e contexto do projeto.</p>
-        </details>
-        <details>
-          <summary>Como é feita a transferência?</summary>
-          <p class="muted">Após acordo, realizamos a troca de titularidade no registro.br e o apontamento de DNS. Podemos usar escrow/NDA.</p>
-        </details>
-        <details>
-          <summary>O domínio possui marcas associadas?</summary>
-          <p class="muted">Venda apenas do <strong>nome de domínio BAR.com.br</strong>. Marcas e logotipos exibidos são apenas identidade visual do site.</p>
-        </details>
       </div>
     </section>
   </main>
@@ -388,10 +380,8 @@
 
   <!-- Scripts -->
   <script>
-    // Ano dinâmico
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Menu simples (exibição futura se você quiser um menu móvel pleno)
     const menuBtn = document.getElementById('menu');
     if(menuBtn){
       menuBtn.addEventListener('click',()=>{
@@ -401,7 +391,6 @@
       });
     }
 
-    // Formulário Formspree (AJAX) — substitua a action com seu endpoint real
     const form = document.getElementById('offerForm');
     const msg = document.getElementById('formMsg');
     if(form){
@@ -412,7 +401,6 @@
         msg.textContent='Enviando…';
         try{
           const formData = new FormData(form);
-          // Se o honeypot (website) vier preenchido, aborta
           if(formData.get('website')){ msg.textContent='Erro de validação.'; return; }
           const res = await fetch(form.action, { method:'POST', body:formData, headers: { 'Accept':'application/json' } });
           if(res.ok){
@@ -430,7 +418,6 @@
       });
     }
 
-    // Política de privacidade mínima (placeholder)
     document.getElementById('open-privacy')?.addEventListener('click', (e)=>{
       e.preventDefault();
       alert('Este site coleta apenas dados do formulário de proposta. Seus dados são usados exclusivamente para contato sobre a negociação do domínio.');

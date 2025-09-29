@@ -152,7 +152,7 @@
       <nav class="nav-actions" aria-label="primária">
         <a href="#galeria" class="btn hide-sm">Galeria</a>
         <a href="#aplicacoes" class="btn hide-sm">Aplicações</a>
-        <a href="#proposta" class="btn primary">Enviar proposta</a>
+        <a href="#proposta" class="btn primary">Quero comprar esse domínio</a>
         <button id="menu" class="btn mobile-toggle" aria-expanded="false" aria-controls="menu-panel">Menu</button>
       </nav>
     </div>
@@ -275,13 +275,14 @@
       <div class="container form-wrap">
         <div>
           <h2 id="proposta-title" class="section-title">Envie sua proposta</h2>
-          <p class="muted">Preencha o formulário abaixo para receber retorno com instruções de due diligence e transferência no registro.br.</p>
+          <p class="muted">Preencha o formulário abaixo para receber retorno com as instruções de due diligence e de transferência no Registro.br.</p>
 
-          <!-- OBS: para ocultar seu e-mail do código, troque o action por https://formsubmit.co/e/SEU_ID -->
+          <!-- Dica: para ocultar seu e-mail do código-fonte, use https://formsubmit.co/e/SEU_ID -->
           <form id="offerForm" action="https://formsubmit.co/axfelipe@hotmail.com" method="POST" novalidate>
             <input type="hidden" name="_subject" value="Nova proposta para BAR.com.br" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_autoresponse" value="Olá! Recebemos sua proposta para o domínio BAR.com.br. Em breve retornaremos com os próximos passos." />
+            <!-- honeypot -->
             <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-5000px;opacity:0" aria-hidden="true">
 
             <div class="row">
@@ -340,7 +341,7 @@
             <li>Assinatura de NDA/LOI (opcional), conferência de titularidade.</li>
             <li>Definição de escrow (ex.: <em>mediador</em>) e condições.</li>
             <li>Pagamento conforme acordo.</li>
-            <li>Transferência técnica no <strong>registro.br</strong> e apontamento DNS.</li>
+            <li>Transferência técnica no <strong>Registro.br</strong> e apontamento DNS.</li>
           </ol>
           <p class="muted">Preferência por propostas corporativas e estratégicas. Sem pressa para vender; aberto a ofertas sérias.</p>
           <div style="display:flex; gap:.6rem; flex-wrap:wrap; margin-top:10px">
@@ -399,15 +400,45 @@
         msg.style.display='block';
         msg.className='alert';
         msg.textContent='Enviando…';
+
         try{
-          const amount = Number(document.getElementById('amount').value || 0);
-          if (amount && amount < 50000){
+          // validação mínima do valor
+          const amountVal = Number(document.getElementById('amount').value || 0);
+          if (amountVal && amountVal < 50000){
             msg.className='alert err';
             msg.textContent='O valor mínimo é R$ 50.000.';
             return;
           }
 
           const formData = new FormData(form);
+          // honeypot
           if(formData.get('website')){ msg.textContent='Erro de validação.'; return; }
 
-          const res = await fetch(form.action, { method:'POST', body:
+          const res = await fetch(form.action, {
+            method:'POST',
+            body:formData,
+            headers: { 'Accept':'application/json' }
+          });
+
+          if(res.ok){
+            msg.className='alert ok';
+            msg.textContent='Proposta enviada! Responderemos em breve.';
+            form.reset();
+          }else{
+            const data = await res.json().catch(()=>({}));
+            throw new Error(data?.errors?.[0]?.message || 'Falha ao enviar. Tente novamente.');
+          }
+        }catch(err){
+          msg.className='alert err';
+          msg.textContent = err.message || 'Falha ao enviar.';
+        }
+      });
+    }
+
+    document.getElementById('open-privacy')?.addEventListener('click',(e)=>{
+      e.preventDefault();
+      alert('Este site coleta apenas dados do formulário de proposta. Seus dados são usados exclusivamente para contato sobre a negociação do domínio.');
+    });
+  </script>
+</body>
+</html>

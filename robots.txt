@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bar.com.br/sitemap.xml

@@ -32,9 +32,9 @@
       --surface-2:#171B22;
       --text:#EAEFF7;
       --muted:#A7B0C0;
-      --primary:#2ECC71;         /* Esmeralda */
+      --primary:#2ECC71;
       --primary-600:#27AE60;
-      --accent:#F3A712;          /* Dourado */
+      --accent:#F3A712;
       --ok:#00C47A; --warn:#FFC857; --err:#ff4d4f;
       --radius:18px;
       --shadow:0 10px 30px rgba(0,0,0,.35);
@@ -202,7 +202,7 @@
       </div>
     </section>
 
-    <!-- GALERIA -->
+    <!-- GALERIA (8 imagens, sem o neon) -->
     <section id="galeria">
       <div class="container">
         <div class="section-head">
@@ -218,10 +218,6 @@
           </a>
           <a href="images/beer-flight.jpg" target="_blank" rel="noopener">
             <img loading="lazy" alt="Tábua de degustação de cervejas artesanais" src="images/beer-flight.jpg" />
-          </a>
-          <!-- substituído para evitar duplicação visual -->
-          <a href="images/hero-neon-bar.jpg" target="_blank" rel="noopener">
-            <img loading="lazy" alt="Letreiro BAR em neon esmeralda" src="images/hero-neon-bar.jpg" />
           </a>
           <a href="images/deal-handshake.jpg" target="_blank" rel="noopener">
             <img loading="lazy" alt="Aperto de mãos no balcão do bar" src="images/deal-handshake.jpg" />
@@ -280,6 +276,8 @@
         <div>
           <h2 id="proposta-title" class="section-title">Envie sua proposta</h2>
           <p class="muted">Preencha o formulário abaixo para receber retorno com instruções de due diligence e transferência no registro.br.</p>
+
+          <!-- OBS: para ocultar seu e-mail do código, troque o action por https://formsubmit.co/e/SEU_ID -->
           <form id="offerForm" action="https://formsubmit.co/axfelipe@hotmail.com" method="POST" novalidate>
             <input type="hidden" name="_subject" value="Nova proposta para BAR.com.br" />
             <input type="hidden" name="_captcha" value="false" />
@@ -317,8 +315,9 @@
                 </select>
               </div>
               <div>
-                <label for="amount">Oferta (número)</label>
-                <input id="amount" name="amount" type="number" min="0" step="100" placeholder="Ex.: 250000" />
+                <label for="amount">Oferta (mínimo R$ 50.000)</label>
+                <input id="amount" name="amount" type="number" min="50000" step="100" placeholder="Ex.: 50000" />
+                <small class="muted">Oferta mínima: R$ 50.000</small>
               </div>
             </div>
 
@@ -345,8 +344,8 @@
           </ol>
           <p class="muted">Preferência por propostas corporativas e estratégicas. Sem pressa para vender; aberto a ofertas sérias.</p>
           <div style="display:flex; gap:.6rem; flex-wrap:wrap; margin-top:10px">
-            <a class="btn" href="https://wa.me/SEU_NUMERO" target="_blank" rel="noopener">Falar no WhatsApp</a>
-            <a class="btn" href="mailto:axfelipe@hotmail.com">axfelipe@hotmail.com</a>
+            <a class="btn" href="https://wa.me/5531995195540?text=Tenho%20interesse%20em%20comprar%20o%20dom%C3%ADnio%20BAR.com.br" target="_blank" rel="noopener">Falar no WhatsApp</a>
+            <!-- e-mail removido da interface pública -->
           </div>
         </aside>
       </div>
@@ -401,29 +400,14 @@
         msg.className='alert';
         msg.textContent='Enviando…';
         try{
+          const amount = Number(document.getElementById('amount').value || 0);
+          if (amount && amount < 50000){
+            msg.className='alert err';
+            msg.textContent='O valor mínimo é R$ 50.000.';
+            return;
+          }
+
           const formData = new FormData(form);
           if(formData.get('website')){ msg.textContent='Erro de validação.'; return; }
-          const res = await fetch(form.action, { method:'POST', body:formData, headers: { 'Accept':'application/json' } });
-          if(res.ok){
-            msg.className='alert ok';
-            msg.textContent='Proposta enviada! Responderemos em breve.';
-            form.reset();
-          }else{
-            const data = await res.json().catch(()=>({}));
-            throw new Error(data?.errors?.[0]?.message || 'Falha ao enviar. Tente novamente.');
-          }
-        }catch(err){
-          msg.className='alert err';
-          msg.textContent= err.message || 'Falha ao enviar.';
-        }
-      });
-    }
 
-    document.getElementById('open-privacy')?.addEventListener('click', (e)=>{
-      e.preventDefault();
-      alert('Este site coleta apenas dados do formulário de proposta. Seus dados são usados exclusivamente para contato sobre a negociação do domínio.');
-    });
-  </script>
-</body>
-</html>
-
+          const res = await fetch(form.action, { method:'POST', body:

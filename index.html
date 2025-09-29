@@ -119,7 +119,7 @@
     .policy{font-size:.86rem; color:var(--muted)}
     .alert{padding:.85rem 1rem; border-radius:12px; border:1px solid rgba(255,255,255,.12)}
     .alert.ok{background:rgba(0,196,122,.12); border-color:rgba(0,196,122,.4)}
-    .alert.err{background:rgba(255,77,79,.12); border-color:rgba(255,77,79,.35)}
+    .alert.err{background:rgba(255,77,79,.12); border-color:rgba(255,255,255,.35)}
 
     /* FAQ */
     details{background:linear-gradient(180deg,var(--surface),var(--surface-2)); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:16px 18px}
@@ -152,7 +152,7 @@
       <nav class="nav-actions" aria-label="primária">
         <a href="#galeria" class="btn hide-sm">Galeria</a>
         <a href="#aplicacoes" class="btn hide-sm">Aplicações</a>
-        <a href="#proposta" class="btn primary">Quero comprar esse domínio</a>
+        <a href="#proposta" class="btn primary">Enviar proposta</a>
         <button id="menu" class="btn mobile-toggle" aria-expanded="false" aria-controls="menu-panel">Menu</button>
       </nav>
     </div>
@@ -316,9 +316,8 @@
                 </select>
               </div>
               <div>
-                <label for="amount">Oferta (mínimo R$ 50.000)</label>
-                <input id="amount" name="amount" type="number" min="50000" step="100" placeholder="Ex.: 50000" />
-                <small class="muted">Oferta mínima: R$ 50.000</small>
+                <label for="amount">Oferta</label>
+                <input id="amount" name="amount" type="number" step="100" placeholder="Ex.: 250000" />
               </div>
             </div>
 
@@ -343,7 +342,7 @@
             <li>Pagamento conforme acordo.</li>
             <li>Transferência técnica no <strong>Registro.br</strong> e apontamento DNS.</li>
           </ol>
-          <p class="muted">Preferência por propostas corporativas e estratégicas. Sem pressa para vender; aberto a ofertas sérias.</p>
+          <p class="muted">Preferência por propostas corporativas e estratégicas. Sem pressa para vender; aberto a propostas sérias.</p>
           <div style="display:flex; gap:.6rem; flex-wrap:wrap; margin-top:10px">
             <a class="btn" href="https://wa.me/5531995195540?text=Tenho%20interesse%20em%20comprar%20o%20dom%C3%ADnio%20BAR.com.br" target="_blank" rel="noopener">Falar no WhatsApp</a>
             <!-- e-mail removido da interface pública -->
@@ -402,14 +401,6 @@
         msg.textContent='Enviando…';
 
         try{
-          // validação mínima do valor
-          const amountVal = Number(document.getElementById('amount').value || 0);
-          if (amountVal && amountVal < 50000){
-            msg.className='alert err';
-            msg.textContent='O valor mínimo é R$ 50.000.';
-            return;
-          }
-
           const formData = new FormData(form);
           // honeypot
           if(formData.get('website')){ msg.textContent='Erro de validação.'; return; }
